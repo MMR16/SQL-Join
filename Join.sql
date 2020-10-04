@@ -1,5 +1,5 @@
-use Uneiversity
-----cartesiant  Product
+use University
+----cartesian  Product
 --------Every Value From one Table Duplicate with all Values From another table
 select Personal_Name,DeptName from
 Student,Department
@@ -49,18 +49,20 @@ Select x.EName as Employee , y.EName  as Overseer from Employees x inner join Em
 Select x.EName,y.* from Employees x, Employees y Where y.EID=x.SuperID
 
 ------------------------------------------
--------- Join multi tables
+-------- Join multiple tables
 select St_name,Crs_name,grade
 from student s , stud_course SC , Course C
 Where S.st_id=SC.id and C.Crs_Id=sc.crs_Id
 
--------- inner joi multi tables
+-------- inner join multiple tables
 select St_name,Crs_name,grade
 from student s inner join stud_course SC 
 on S.st_id=SC.id 
 inner join
 Course C
 on C.Crs_Id=sc.crs_Id
+
+
 
 
 
