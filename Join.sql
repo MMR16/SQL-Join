@@ -64,7 +64,65 @@ on C.Crs_Id=sc.crs_Id
 
 
 
+------------------------------------------
+select users.id, users.name	, products.name as product
+from users , products
+where users.id = products.user_id
+order by users.name
 
+--------inner join
+select users.id, users.name	, products.name as product
+from users 
+inner join products
+on users.id = products.user_id
+order by users.name
+
+--------full outer join
+select users.id, users.name	, products.name as product
+from users 
+full join products
+on users.id = products.user_id
+order by users.name
+
+--------left join
+select users.id, users.name	, products.name as product
+from users 
+left join products
+on users.id = products.user_id
+order by users.name
+
+--------right join
+select users.id, users.name	, products.name as product
+from users 
+right join products
+on users.id = products.user_id
+order by users.name
+
+--------corss join -- cartesian join
+select users.id, users.name	, products.name as product
+from users 
+cross join products
+
+
+BEGIN TRANSACTION
+ INSERT INTO products VALUES(105,'Product-5',3)
+ UPDATE products SET name ='mmr' WHERE id = 6
+ DELETE FROM products WHERE id = 8
+COMMIT TRANSACTION
+IF(@@ERROR > 0)
+BEGIN
+    Rollback Transaction
+END
+ELSE
+BEGIN
+   Commit Transaction
+END
+
+select * from products
+begin tran 
+UPDATE products SET name ='mmrssssssss' WHERE id = 6
+ROLLBACK TRAN 
+select * from products
 
 
 
